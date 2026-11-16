@@ -1,0 +1,9 @@
+# build output
+dist/
+test/rig/
+
+# local settings and logs
+MhoCoop.ini
+MhoCoop.log
+*.bat
+*.bak
