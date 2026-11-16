@@ -17,7 +17,8 @@ namespace MhoCoop
         public string GameExe = "";
         public string ProtoDir = "";
         public string Server = DefaultServer;
-        public string ExtraArgs = DefaultExtraArgs;
+        public string LeftArgs = DefaultExtraArgs;     // extra options for the left game
+        public string RightArgs = DefaultExtraArgs;    // and for the right game
         public int LeftPad = 1;
         public int RightPad = 2;
         public int LoadWait = 18;                  // seconds given to each game to load before the next step
@@ -85,7 +86,9 @@ namespace MhoCoop
                 case "gameexe": GameExe = value; break;
                 case "protodir": ProtoDir = value; break;
                 case "server": Server = value; break;
-                case "extraargs": ExtraArgs = value; break;
+                case "extraargs": LeftArgs = value; RightArgs = value; break;   // 1.1.0 had one box for both games
+                case "leftargs": LeftArgs = value; break;
+                case "rightargs": RightArgs = value; break;
                 case "leftpad": LeftPad = Clamp(value, 1, 4, 1); break;
                 case "rightpad": RightPad = Clamp(value, 1, 4, 2); break;
                 case "loadwait": LoadWait = Clamp(value, 3, 180, 18); break;
@@ -117,7 +120,8 @@ namespace MhoCoop
             sb.AppendLine("GameExe=" + GameExe);
             sb.AppendLine("ProtoDir=" + ProtoDir);
             sb.AppendLine("Server=" + Server);
-            sb.AppendLine("ExtraArgs=" + ExtraArgs);
+            sb.AppendLine("LeftArgs=" + LeftArgs);
+            sb.AppendLine("RightArgs=" + RightArgs);
             sb.AppendLine("LeftPad=" + LeftPad);
             sb.AppendLine("RightPad=" + RightPad);
             sb.AppendLine("LoadWait=" + LoadWait);

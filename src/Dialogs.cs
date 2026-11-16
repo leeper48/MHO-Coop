@@ -9,7 +9,7 @@ namespace MhoCoop
     internal sealed class SettingsForm : Form
     {
         private readonly Config cfg;
-        private readonly TextBox gameBox, protoBox, serverBox, extraBox;
+        private readonly TextBox gameBox, protoBox, serverBox, leftArgsBox, rightArgsBox;
         private readonly Label gameNote, protoNote;
         private readonly NumericUpDown leftPad, rightPad, loadWait;
         private readonly CheckBox borderless, wheel, checkUpdates;
@@ -37,8 +37,10 @@ namespace MhoCoop
             Theme.Put(this, Theme.MakeLabel("Server address", true), 20, 182, 0, 0);
             serverBox = Theme.Put(this, Theme.MakeTextBox(), 20, 204, 580, 0);
 
-            Theme.Put(this, Theme.MakeLabel("Extra game options", true), 20, 246, 0, 0);
-            extraBox = Theme.Put(this, Theme.MakeTextBox(), 20, 268, 580, 0);
+            Theme.Put(this, Theme.MakeLabel("Left game options", true), 20, 246, 0, 0);
+            leftArgsBox = Theme.Put(this, Theme.MakeTextBox(), 20, 268, 285, 0);
+            Theme.Put(this, Theme.MakeLabel("Right game options", true), 315, 246, 0, 0);
+            rightArgsBox = Theme.Put(this, Theme.MakeTextBox(), 315, 268, 285, 0);
 
             Theme.Put(this, Theme.MakeLabel("Left game uses gamepad", false), 20, 318, 0, 0);
             leftPad = Theme.Put(this, Theme.MakeNumber(1, 4, cfg.LeftPad), 220, 314, 60, 0);
@@ -75,7 +77,8 @@ namespace MhoCoop
             gameBox.Text = cfg.GameExe;
             protoBox.Text = cfg.ProtoDir;
             serverBox.Text = cfg.Server;
-            extraBox.Text = cfg.ExtraArgs;
+            leftArgsBox.Text = cfg.LeftArgs;
+            rightArgsBox.Text = cfg.RightArgs;
             borderless.Checked = cfg.Borderless;
             wheel.Checked = cfg.WheelPerWindow;
 
@@ -174,7 +177,8 @@ namespace MhoCoop
             cfg.GameExe = gameBox.Text.Trim();
             cfg.ProtoDir = protoBox.Text.Trim();
             cfg.Server = serverBox.Text.Trim();
-            cfg.ExtraArgs = extraBox.Text.Trim();
+            cfg.LeftArgs = leftArgsBox.Text.Trim();
+            cfg.RightArgs = rightArgsBox.Text.Trim();
             cfg.LeftPad = (int)leftPad.Value;
             cfg.RightPad = (int)rightPad.Value;
             cfg.LoadWait = (int)loadWait.Value;

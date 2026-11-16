@@ -36,9 +36,9 @@ Get the zip from the [Releases](https://github.com/leeper48/MHO-Coop/releases) p
 
 Any screen size works. Each game gets half of the main display above the taskbar: about 960 pixels wide per player on a 1080p screen, 1920 on a 4K one.
 
-## No account details are kept
+## No account information is stored
 
-This app does not ask for, store or send any player name, email or password. Logging in happens only inside the game.
+This app presently doesn't store any account information. Logging in happens only inside the game.
 
 What the app does keep is in `%AppData%\MhoCoop`: the game location, the ProtoInput folder, the server address, the gamepad numbers, and a log of the last session. To keep these next to the program instead, put an empty file named `MhoCoop.ini` beside `MhoCoop.exe` before the first run.
 

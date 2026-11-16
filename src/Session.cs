@@ -127,10 +127,11 @@ namespace MhoCoop
             return Attach();
         }
 
-        private string BuildArguments(int resX, int resY)
+        private string BuildArguments(string side, int resX, int resY)
         {
             StringBuilder sb = new StringBuilder();
-            if (cfg.ExtraArgs.Trim().Length > 0) sb.Append(cfg.ExtraArgs.Trim()).Append(' ');
+            string extra = (side == "left" ? cfg.LeftArgs : cfg.RightArgs).Trim();
+            if (extra.Length > 0) sb.Append(extra).Append(' ');
             sb.Append("-ResX=").Append(resX).Append(" -ResY=").Append(resY).Append(" -windowed");
             if (cfg.Server.Trim().Length > 0) sb.Append(" -siteconfigurl=").Append(cfg.Server.Trim());
             return sb.ToString();
@@ -140,7 +141,7 @@ namespace MhoCoop
         private IntPtr StartGame(string side, int resX, int resY)
         {
             HashSet<IntPtr> before = new HashSet<IntPtr>(Native.GameWindows(WindowClass, processName, 0, false));
-            ProcessStartInfo psi = new ProcessStartInfo(cfg.GameExe, BuildArguments(resX, resY));
+            ProcessStartInfo psi = new ProcessStartInfo(cfg.GameExe, BuildArguments(side, resX, resY));
             psi.WorkingDirectory = Path.GetDirectoryName(cfg.GameExe);
             psi.UseShellExecute = false;
             try

@@ -10,8 +10,8 @@ using System.Windows.Forms;
 [assembly: AssemblyTitle("MHO Couch Co-op")]
 [assembly: AssemblyProduct("MHO Couch Co-op")]
 [assembly: AssemblyDescription("Two Marvel Heroes Omega games side by side, one gamepad each")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.1.1.0")]
+[assembly: AssemblyFileVersion("1.1.1.0")]
 
 namespace MhoCoop
 {

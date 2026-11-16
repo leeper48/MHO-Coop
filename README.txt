@@ -29,10 +29,10 @@ Playing
 - Mouse and keyboard go to whichever game you clicked last.
 - The app sits as an icon near the clock and closes by itself when both games are closed.
 
-No account details are kept
----------------------------
-This app does not ask for, store or send any player name, email or password. Logging in happens
-only inside the game.
+No account information is stored
+--------------------------------
+This app presently doesn't store any account information. Logging in happens only inside
+the game.
 
 Updates
 -------
