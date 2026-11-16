@@ -1,5 +1,7 @@
 // The Settings dialog.
 using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,6 +13,8 @@ namespace MhoCoop
         private readonly Config cfg;
         private readonly TextBox gameBox, protoBox, serverBox, leftArgsBox, rightArgsBox;
         private readonly Label gameNote, protoNote;
+        private readonly LinkLabel protoLink;
+        private const string ProtoInputPage = "https://github.com/ilyaki/ProtoInput/releases";
         private readonly NumericUpDown leftPad, rightPad, loadWait;
         private readonly CheckBox borderless, wheel, checkUpdates;
 
@@ -33,6 +37,22 @@ namespace MhoCoop
             Button browseProto = Theme.Put(this, Theme.MakeButton("Browse", false), 508, 121, 92, 28);
             protoNote = Theme.Put(this, Theme.MakeLabel("", true), 20, 152, 0, 0);
             protoNote.Font = Theme.Ui(8.5f, false);
+            // Shown while ProtoInput is not found: opens its download page.
+            protoLink = Theme.Put(this, new LinkLabel(), 420, 152, 180, 0);
+            protoLink.Text = "Get ProtoInput";
+            protoLink.AutoSize = false;
+            protoLink.Height = Theme.S(20);
+            protoLink.TextAlign = ContentAlignment.TopRight;
+            protoLink.Font = Theme.Ui(8.5f, false);
+            protoLink.BackColor = Color.Transparent;
+            protoLink.LinkColor = protoLink.VisitedLinkColor = Color.FromArgb(0xA8, 0x9E, 0xFF);
+            protoLink.ActiveLinkColor = Theme.Text;
+            protoLink.TabStop = true;
+            protoLink.LinkClicked += delegate
+            {
+                try { Process.Start(ProtoInputPage); }
+                catch (Exception) { Theme.Warn(this, "Couldn't open the browser. ProtoInput is at:\n" + ProtoInputPage); }
+            };
 
             Theme.Put(this, Theme.MakeLabel("Server address", true), 20, 182, 0, 0);
             serverBox = Theme.Put(this, Theme.MakeTextBox(), 20, 204, 580, 0);
@@ -101,6 +121,7 @@ namespace MhoCoop
             bool protoOk = Proto.FolderLooksValid(protoBox.Text.Trim());
             protoNote.Text = protoOk ? "ProtoInput found." : "ProtoInputLoader64.dll and ProtoInputHooks64.dll are not in this folder.";
             protoNote.ForeColor = protoOk ? Theme.Good : Theme.Warning;
+            protoLink.Visible = !protoOk;
         }
 
         private void BrowseGame()
