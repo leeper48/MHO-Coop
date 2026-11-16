@@ -38,9 +38,9 @@ Any screen size works. Each game gets half of the main display above the taskbar
 
 ## No account information is stored
 
-This app presently doesn't store any account information. Logging in happens only inside the game.
+This app presently doesn't store any account information. Logging in happens only inside the game. Anything you type in the Left or Right game options boxes is saved as plain text in the settings file, so don't put a password there unless you are fine with that.
 
-What the app does keep is in `%AppData%\MhoCoop`: the game location, the ProtoInput folder, the server address, the gamepad numbers, and a log of the last session. To keep these next to the program instead, put an empty file named `MhoCoop.ini` beside `MhoCoop.exe` before the first run.
+What the app does keep is in `%AppData%\MhoCoop`: the game location, the ProtoInput folder, the server address, the options for each game, the gamepad numbers, and a log of the last session. To keep these next to the program instead, put an empty file named `MhoCoop.ini` beside `MhoCoop.exe` before the first run.
 
 ## Updates
 

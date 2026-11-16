@@ -30,7 +30,7 @@ MHO Couch Co-op runs two Marvel Heroes Omega games side by side with one gamepad
 
 The stand-in is not DPI-aware, so its window sizes come out a pixel off on scaled screens; that is the rig, not the app.
 
-Not yet verified with the real game: a full session started by this app (it was developed against the stand-in), and attaching ProtoInput while the game is still at its login screen.
+A full session with the real game, started by this app, has been tested by the owner and works.
 
 ## Releasing
 

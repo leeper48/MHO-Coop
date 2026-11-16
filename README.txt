@@ -33,6 +33,8 @@ No account information is stored
 --------------------------------
 This app presently doesn't store any account information. Logging in happens only inside
 the game.
+Anything you type in the Left or Right game options boxes is saved as plain text in the
+settings file, so don't put a password there unless you are fine with that.
 
 Updates
 -------
